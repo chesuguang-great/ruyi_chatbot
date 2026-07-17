@@ -1,0 +1,11 @@
+{
+  "ruyi": {
+    "file_name": "dataset_ruyi.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "system": "system"
+    }
+  }
+}

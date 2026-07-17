@@ -1,0 +1,11 @@
+torch>=2.0.0
+transformers>=4.44.0
+peft>=0.12.0
+gradio>=4.0.0
+accelerate>=0.30.0
+httpx>=0.27.0
+openai>=1.30.0
+python-dotenv>=1.0.0
+numpy>=1.26.0
+safetensors>=0.4.0
+# mlx-lm>=0.20.0  # 仅 Apple Silicon 推理需要，取消注释以启用

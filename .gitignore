@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# 密钥（永远不提交）
+.env
+
+# 系统文件
+.DS_Store
+
+# Gradio
+.gradio/
+
+# 模型权重（太大，单独管理）
+output/
+
+# 压缩包
+*.zip
+*.tar.gz
