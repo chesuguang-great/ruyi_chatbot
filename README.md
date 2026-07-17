@@ -21,19 +21,19 @@
 
 ## 快速开始
 
+> **注意**：本项目不含模型权重（`output/` 已被 gitignore）。使用前需自行训练或获取权重。
+
 ```bash
 # 1. 安装依赖
 pip install -r requirements.txt
 
-# 2. 获取模型权重（二选一）
-# 方式 A: 下载预训练 GGUF 权重 → 导入 Ollama
-# （权重文件见 Release 页面，或自行训练生成）
+# 2. 训练模型（需要 RTX 3090/4090 GPU，约 2 小时）
+# 详见 docs/微调技术总结.md，训练完成后权重生成到 output/
+bash scripts/train.sh
 
-# 方式 B: 从头训练（需要 RTX 3090/4090 GPU，约 2 小时）
-# 详见 docs/微调技术总结.md
-
-# 3. 创建 Ollama 模型
-ollama serve &
+# 3. 合并并量化 → 创建 Ollama 模型
+python scripts/merge_lora.py
+# 然后用 llama.cpp 转 GGUF + 量化（详见 docs/微调技术总结.md）
 ollama create ruyi -f config/Modelfile
 
 # 4. 启动聊天界面
@@ -67,7 +67,7 @@ final_ruyi/
 ├── analysis/             # 角色分析文档（7 篇）
 ├── docs/                 # 技术文档与经验总结
 ├── archive/              # 历史代码（旧版推理入口、已停用工具）
-└── output/               # 模型权重（需自行训练或下载，不上传 git）
+└── output/               # 模型权重（需自行训练，不上传 git）
 ```
 
 ## 技术栈
